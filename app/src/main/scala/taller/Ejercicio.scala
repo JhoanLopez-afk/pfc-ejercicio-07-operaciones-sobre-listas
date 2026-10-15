@@ -18,33 +18,33 @@ class Ejercicio {
 
   /** Cuántos elementos tiene la lista. */
   def longitud(l: List[Int]): Int = {
-    0 // Completar
+    if (l.isEmpty) 0 else 1 + longitud(l.tail)
   }
 
   /** La lista con los elementos en orden inverso. */
   def invertir(l: List[Int]): List[Int] = {
-    List() // Completar
+    if (l.isEmpty) Nil else invertir(l.tail) :+ l.head
   }
 
   /** Los elementos de l1 seguidos de los de l2. */
   def concatenar(l1: List[Int], l2: List[Int]): List[Int] = {
-    List() // Completar
+    if (l1.isEmpty) l2 else if (l2.isEmpty) l1 else l1 ++ l2
   }
 
   /** El último elemento. Falla con una lista vacía. */
   def ultimo(l: List[Int]): Int = {
     if (l.isEmpty) throw new NoSuchElementException("la lista está vacía")
-    else 0 // Completar
+    else if (l.tail.isEmpty) l.head else ultimo(l.tail)
   }
 
   /** Los primeros n elementos. Con n mayor que la longitud, la lista entera. */
   def tomar(l: List[Int], n: Int): List[Int] = {
-    List() // Completar
+    if (l.isEmpty || n<=0) Nil else l.head +: tomar(l.tail, n-1)
   }
 
   /** La lista sin sus primeros n elementos. */
   def soltar(l: List[Int], n: Int): List[Int] = {
-    List() // Completar
+    if (l.isEmpty || n<=0) Nil else tomar(l.tail, n-1)
   }
 
   /** El elemento en la posición n, contando desde cero. */
